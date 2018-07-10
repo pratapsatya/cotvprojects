@@ -82,11 +82,15 @@ public class UserController {
         return "payment";
     }
     @RequestMapping(value = {"/ticketconfirmation"}, method = RequestMethod.POST)
-    public String TicketConfirmation(Model model,@RequestParam(name="username") String name,@RequestParam(name="nooftickets") String tickets,@RequestParam(name="trainname") String tname,@RequestParam(name="date") String date) {
+    public String TicketConfirmation(Model model,@RequestParam(name="username") String name,@RequestParam(name="nooftickets") String tickets,@RequestParam(name="trainname") String tname) {
     	//logger.debug("Registration called");
-    	tkService.insertData(name,tickets,tname,date);
+    	tkService.insertData(name,tickets,tname);
         return "ticketconfirmation";
     }
-    
+    @RequestMapping(value = {"/history"}, method = RequestMethod.GET)
+    public String History(Model model) {
+    	//logger.debug("Registration called");
+        return "history";
+    }
     
 }

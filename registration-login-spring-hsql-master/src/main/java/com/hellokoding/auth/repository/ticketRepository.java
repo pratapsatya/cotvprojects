@@ -13,8 +13,8 @@ import com.hellokoding.auth.model.tickets;
 public interface ticketRepository extends JpaRepository<tickets, String> {
 	@Transactional
 	@Modifying(clearAutomatically=true)
-	@Query(value = "insert into tickets (uname,tickets, trainname,date) VALUES (?1, ?2, ?3, ?4)", nativeQuery = true)
-	void insertData(String uname,String tickets, String tname,String date);
+	@Query(value = "insert into tickets (uname,tickets, trainname) VALUES (?1, ?2, ?3)", nativeQuery = true)
+	void insertData(String uname,String tickets, String tname);
 	
 	List<tickets> findByName(String uname);
 }

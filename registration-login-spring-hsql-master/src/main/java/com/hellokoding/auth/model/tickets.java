@@ -15,8 +15,7 @@ public class tickets {
 	private int id;
 	@Column(name="uname")
 	private String name;
-	@Column(name="date")
-	private String date;
+	
 	@Column(name="trainname")
 	private String trainname;
 	@Column(name="tickets")
@@ -33,12 +32,7 @@ public class tickets {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
+	
 	public String getTrainname() {
 		return trainname;
 	}

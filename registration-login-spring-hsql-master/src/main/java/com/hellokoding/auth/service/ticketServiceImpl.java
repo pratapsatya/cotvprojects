@@ -17,10 +17,10 @@ public class ticketServiceImpl implements ticketService {
 	private ticketRepository ticketRepository;
 	
 	@Override
-	public void insertData(String uname,String tickets,String tname,String date)
+	public void insertData(String uname,String tickets,String tname)
 	{
 		
-		ticketRepository.insertData(uname,tickets,tname,date); 
+		ticketRepository.insertData(uname,tickets,tname); 
 		
 	}
 	@Override

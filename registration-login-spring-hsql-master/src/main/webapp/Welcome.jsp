@@ -29,7 +29,7 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
 
-        <h2>Welcome ${pageContext.request.userPrincipal.name}....Planning for a Vacataion....!Then why to wait...Book your Tickets | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+        <h2>Welcome ${pageContext.request.userPrincipal.name}....Planning for a Vacataion....!Then why to wait...Book your Tickets | <a onclick="document.forms['logoutForm'].submit()">Logout</a>|<a href="${contextPath}/history">History</a></h2>
        <form method="POST" action="${contextPath}/trains" onsubmit="return myFunction()">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
          <table>
