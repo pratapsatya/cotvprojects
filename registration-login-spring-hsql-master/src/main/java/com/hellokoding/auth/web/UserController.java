@@ -58,6 +58,20 @@ public class UserController {
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
-        return "welcome";
+        return "Welcome";
     }
+    @RequestMapping(value = {"/trains"}, method = RequestMethod.POST)
+    public String Trains(Model model) {
+        return "Trainlist";
+    }
+    @RequestMapping(value = {"/payment"}, method = RequestMethod.GET)
+    public String Payment(Model model) {
+        return "payment";
+    }
+    @RequestMapping(value = {"/ticketconfirmation"}, method = RequestMethod.POST)
+    public String TicketConfirmation(Model model) {
+        return "ticketconfirmation";
+    }
+    
+    
 }
