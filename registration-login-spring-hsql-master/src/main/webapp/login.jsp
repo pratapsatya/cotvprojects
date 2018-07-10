@@ -35,9 +35,9 @@
 
         <div class="form-group ${error != null ? 'has-error' : ''}">
             <span>${message}</span>
-            <input name="username" type="text" class="form-control" placeholder="Username"
-                   autofocus="true"/>
-            <input name="password" type="password" class="form-control" placeholder="Password"/>
+            <input id="name" name="username" type="text" class="form-control" placeholder="Username"
+                   autofocus="true" />
+            <input name="password" type="password" class="form-control" placeholder="Password" onfocus="myName()"/>
             <span>${error}</span>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
@@ -49,6 +49,11 @@
 
 </div>
 <!-- /container -->
+<script>
+function myName(){
+	localStorage.name=document.getElementById("name").value;
+}
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>

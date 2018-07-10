@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>see trains</title>
 <style>
 table {
     font-family: arial, sans-serif;
@@ -68,6 +68,7 @@ ResultSet resultSet = null;
 <td><b>destiny</b></td>
 <td><b>TrainName</b></td>
 <td><b>Timings</b></td>
+<td><b>Tickets available</b></td>
 </tr>
 
 <%
@@ -89,7 +90,8 @@ while(resultSet.next()){
 <td><%=resultSet.getString("destination") %></td>
 <td><%=resultSet.getString("trainname") %></td>
 <td><%=resultSet.getString("timings") %></td>
-<!-- <td><input type="button" value="book" onclick="myFunction1()"></td> -->
+<td><%=resultSet.getString("available") %></td>
+
 </tr>
 
 <% 
@@ -106,8 +108,11 @@ function myFunc(x){
 	
 		var y=x.rowIndex;
 		var z=document.getElementById("mytable").rows[y].cells["0"].innerHTML;
+		var p=document.getElementById("mytable").rows[y].cells["6"].innerHTML;
 		
 		localStorage.trainId=z;
+		localStorage.trainname=document.getElementById("mytable").rows[y].cells["4"].innerHTML;
+		localStorage.tickets=p;
 		window.location.assign("/payment")
 }
 

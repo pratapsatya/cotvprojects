@@ -61,7 +61,7 @@
 </select></td>
 </tr>
 <tr>
-<td><input type="date" id="myDate" name="date" value="2018-07-09" min="" max="" onfocus="myFunction1()">
+<td><input type="date" id="myDate" name="date" value="2018-07-11" min="" max="" onfocus="myFunction1()">
 </td>
 </tr>
 
@@ -79,10 +79,12 @@
 <script>
     function myFunction1(){
         var d=new Date();
-    var y=d.getFullYear()+"-0"+(d.getMonth()+1)+"-0"+d.getDate();
+    var y=d.getFullYear()+"-0"+(d.getMonth()+1)+"-"+d.getDate();
      document.getElementById("myDate").min=y;
     var z=d.getFullYear()+"-0"+(d.getMonth()+1)+"-"+(d.getDate()+7);
     document.getElementById("myDate").max=z;
+    var g=document.getElementById("myDate").value;
+    localStorage.date=g;
     
     }
 function myFunction() {

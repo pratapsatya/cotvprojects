@@ -3,6 +3,7 @@ package com.hellokoding.auth.web;
 import com.hellokoding.auth.model.User;
 import com.hellokoding.auth.service.SecurityService;
 import com.hellokoding.auth.service.UserService;
+import com.hellokoding.auth.service.ticketService;
 import com.hellokoding.auth.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,9 +12,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
+	//private static final Logger logger = LoggerFactory.getLogger(UserController.class);	 
+ 	 
     @Autowired
     private UserService userService;
 
@@ -22,9 +26,13 @@ public class UserController {
 
     @Autowired
     private UserValidator userValidator;
+    
+    @Autowired
+    private ticketService tkService;
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
+    	//logger.debug("Registration called");
         model.addAttribute("userForm", new User());
 
         return "registration";
@@ -32,7 +40,8 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-        userValidator.validate(userForm, bindingResult);
+    	//logger.debug("Registration called");
+    	userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "registration";
@@ -47,7 +56,8 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
-        if (error != null)
+    	//logger.debug("Registration called");
+    	if (error != null)
             model.addAttribute("error", "Your username and password is invalid.");
 
         if (logout != null)
@@ -58,18 +68,23 @@ public class UserController {
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
-        return "Welcome";
+    	//logger.debug("Registration called");
+    	return "Welcome";
     }
     @RequestMapping(value = {"/trains"}, method = RequestMethod.POST)
     public String Trains(Model model) {
+    	//logger.debug("Registration called");
         return "Trainlist";
     }
     @RequestMapping(value = {"/payment"}, method = RequestMethod.GET)
     public String Payment(Model model) {
+    	//logger.debug("Registration called");
         return "payment";
     }
     @RequestMapping(value = {"/ticketconfirmation"}, method = RequestMethod.POST)
-    public String TicketConfirmation(Model model) {
+    public String TicketConfirmation(Model model,@RequestParam(name="username") String name,@RequestParam(name="nooftickets") String tickets,@RequestParam(name="trainname") String tname,@RequestParam(name="date") String date) {
+    	//logger.debug("Registration called");
+    	tkService.insertData(name,tickets,tname,date);
         return "ticketconfirmation";
     }
     
